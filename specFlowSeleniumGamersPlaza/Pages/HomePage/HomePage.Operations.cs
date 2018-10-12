@@ -46,14 +46,13 @@ namespace specFlowSeleniumGamersPlaza.Pages
             wait.Until(ElementToBeClickable(NintendoWiiCategory));
 
             NintendoWiiCategory.Click();
-
             return new CategoryPage(driver);
         }
 
         public static HomePage LogOut()
         {
             var afmelden = Afmelden;
-		    if (afmelden.Displayed && afmelden.Enabled) {
+		    if (AfmeldenWerkt) {
 			    afmelden.Click();
 		    } else {
 			    Thread.Sleep(1000); // dit kan concreeter
