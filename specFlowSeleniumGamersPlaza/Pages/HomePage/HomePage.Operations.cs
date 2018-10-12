@@ -10,7 +10,7 @@ using TechTalk.SpecFlow;
 
 namespace specFlowSeleniumGamersPlaza.Pages
 {
-    public class HomePage : BasePage
+    public partial class HomePage : BasePage
     {
         public HomePage(IWebDriver driver) : base(driver)
         {
@@ -18,14 +18,13 @@ namespace specFlowSeleniumGamersPlaza.Pages
 
         public static HomePage ValidateHomePage(IWebDriver driver)
         {
-            IWebElement searchBar = driver.FindElement(By.Id("search_query"));
+            var validated = SearchBar != null;
             return new HomePage(driver);
         }
 
 
         public static HomePage ClickOnMyAccountLink() // Het kan dus ook een HomePage zijn, dan komt er een HomePage driver terug.
         {
-            IWebElement myaccount = driver.FindElement(By.LinkText("Mijn account"));
             myaccount.Click();
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -47,7 +46,7 @@ namespace specFlowSeleniumGamersPlaza.Pages
 
         public static CategoryPage SelectNintendoWiiCategory()
         {
-            IWebElement categorySection = driver.FindElement(By.Id("categories_block_left"));
+
             IWebElement nintendoWiiCategory = categorySection.FindElement(By.LinkText("Nintendo Wii"));
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(nintendoWiiCategory));
