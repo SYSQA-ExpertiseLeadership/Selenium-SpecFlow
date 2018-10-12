@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using TechTalk.SpecFlow;
+using System;
+using System.Threading;
+using static OpenQA.Selenium.Support.UI.ExpectedConditions;
 
 namespace specFlowSeleniumGamersPlaza.Pages
 {
@@ -19,16 +16,16 @@ namespace specFlowSeleniumGamersPlaza.Pages
         public static HomePage ValidateHomePage(IWebDriver driver)
         {
             var validated = SearchBar != null;
+            Assert.IsTrue(validated);
             return new HomePage(driver);
         }
 
 
         public static HomePage ClickOnMyAccountLink() // Het kan dus ook een HomePage zijn, dan komt er een HomePage driver terug.
         {
-            myaccount.Click();
+            MyAccount.Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("email")));
+            wait.Until(ElementIsVisible(By.Id("email"))); // volgens mij hoeft dit niet en de methode is obsolete 
             return new HomePage(driver);
         }
 
@@ -46,21 +43,20 @@ namespace specFlowSeleniumGamersPlaza.Pages
 
         public static CategoryPage SelectNintendoWiiCategory()
         {
+            wait.Until(ElementToBeClickable(NintendoWiiCategory));
 
-            IWebElement nintendoWiiCategory = categorySection.FindElement(By.LinkText("Nintendo Wii"));
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(nintendoWiiCategory));
-            nintendoWiiCategory.Click();
+            NintendoWiiCategory.Click();
+
             return new CategoryPage(driver);
         }
 
         public static HomePage LogOut()
         {
-            IWebElement Afmelden = driver.FindElement(By.LinkText("Afmelden"));
-		    if (Afmelden.Displayed && Afmelden.Enabled) {
-			    Afmelden.Click();
+            var afmelden = Afmelden;
+		    if (afmelden.Displayed && afmelden.Enabled) {
+			    afmelden.Click();
 		    } else {
-			    Thread.Sleep(1000);
+			    Thread.Sleep(1000); // dit kan concreeter
 		    }
             return new HomePage(driver);
         }
