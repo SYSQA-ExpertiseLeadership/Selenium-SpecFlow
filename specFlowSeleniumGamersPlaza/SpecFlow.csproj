@@ -78,7 +78,9 @@
     </Compile>
     <Compile Include="Hooks\Hooks.cs" />
     <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Pages\CategoryPage.cs" />
+    <Compile Include="Pages\CategoryPage\CategoryPage.Elements.cs" />
+    <Compile Include="Pages\CategoryPage\CategoryPage.Properties.cs" />
+    <Compile Include="Pages\CategoryPage\CategoryPage.Operations.cs" />
     <Compile Include="Pages\HomePage\HomePage.Operations.cs" />
     <Compile Include="Pages\HomePage\HomePage.Elements.cs" />
     <Compile Include="Pages\HomePage\HomePage.Properties.cs" />
@@ -86,7 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\LoginSteps.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\LoginPage\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\A_Login.feature">

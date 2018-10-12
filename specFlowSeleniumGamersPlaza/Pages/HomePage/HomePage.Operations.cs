@@ -15,8 +15,7 @@ namespace specFlowSeleniumGamersPlaza.Pages
 
         public static HomePage ValidateHomePage(IWebDriver driver)
         {
-            var validated = SearchBar != null;
-            Assert.IsTrue(validated);
+            IWebElement searchBar = driver.FindElement(By.Id("search_query"));
             return new HomePage(driver);
         }
 

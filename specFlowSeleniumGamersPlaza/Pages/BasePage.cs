@@ -7,7 +7,7 @@ using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using BoDi;
-
+using OpenQA.Selenium.Support.UI;
 
 namespace specFlowSeleniumGamersPlaza.Pages
 {
@@ -17,6 +17,8 @@ namespace specFlowSeleniumGamersPlaza.Pages
         public BasePage(IWebDriver driver)
         {
             BasePage.driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
+        public static WebDriverWait wait;
     }
 }
