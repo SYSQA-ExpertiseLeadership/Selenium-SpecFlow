@@ -1,9 +1,7 @@
-﻿using System;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium;
-using specFlowSeleniumGamersPlaza.Pages;
+﻿using OpenQA.Selenium;
 using specFlowSeleniumGamersPlaza.Hooks;
-using SeleniumExtras.PageObjects;
+using specFlowSeleniumGamersPlaza.Pages;
+using TechTalk.SpecFlow;
 
 
 namespace specFlowSeleniumGamersPlaza.Steps
@@ -24,33 +22,33 @@ namespace specFlowSeleniumGamersPlaza.Steps
             // Verderop is het niet nodig en ook voor de andere pagina's is het niet nodig.
             // Misschien dat Rianne het weet
             // PageFactory.InitElements(driver, typeof(HomePage)); // Dit blijkt ook niet noodzakelijk
-            HomePage.ValidateHomePage(driver); 
+            HomePage.ValidateHomePage(driver);
         }
-        
+
         [When(@"the user navigates to the loginpage")]
         public void WhenTheUserNavigatesToTheLoginpage()
         {
             HomePage.ClickOnMyAccountLink();
         }
-        
+
         [When(@"the user enters correct username")]
         public void WhenTheUserEntersCorrectUsername()
         {
             LoginPage.EnterUsername("selenium@sysqa.nl");
         }
-        
+
         [When(@"the user enters correct password")]
         public void WhenTheUserEntersCorrectPassword()
         {
             LoginPage.EnterPassword("wachtwoord1");
         }
-        
+
         [When(@"the user clicks on the login button")]
         public void WhenTheUserClicksOnTheLoginButton()
         {
             LoginPage.ClickLoginButton();
         }
-        
+
         [When(@"the user is succesfully logged in")]
         public void ThenTheUserIsSuccesfullyLoggedIn()
         {

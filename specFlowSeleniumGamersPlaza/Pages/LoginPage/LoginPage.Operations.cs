@@ -1,36 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using TechTalk.SpecFlow;
-using BoDi;
+﻿using OpenQA.Selenium;
+using System;
 using static SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace specFlowSeleniumGamersPlaza.Pages
 {
     public partial class LoginPage : BasePage
-    { 
+    {
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
 
         public static LoginPage EnterUsername(String mailAddress)
         {
-            usernameInputField.SendKeys(mailAddress);
+            UserNameInputField.SendKeys(mailAddress);
             return new LoginPage(driver);
         }
 
         public static LoginPage EnterPassword(String password)
         {
-            passwordInputField.SendKeys(password);
+            PasswordInputField.SendKeys(password);
             return new LoginPage(driver);
         }
         public static CategoryPage ClickLoginButton()
         {
-            loginButton.Click();
+            LoginButton.Click();
             return new CategoryPage(driver);
         }
 

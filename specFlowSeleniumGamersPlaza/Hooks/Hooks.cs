@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using BoDi;
+using TechTalk.SpecFlow;
 
 namespace specFlowSeleniumGamersPlaza.Hooks
 {
     [Binding]
     public class Hooks1
     {
-
         public static IWebDriver driver;
-
         //[BeforeTestRun]
         [BeforeScenario]
         public static void SetupBrowser()

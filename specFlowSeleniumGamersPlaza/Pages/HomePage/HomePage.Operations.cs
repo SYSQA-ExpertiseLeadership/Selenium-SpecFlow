@@ -1,7 +1,4 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
+﻿using OpenQA.Selenium;
 using System.Threading;
 using static OpenQA.Selenium.Support.UI.ExpectedConditions;
 

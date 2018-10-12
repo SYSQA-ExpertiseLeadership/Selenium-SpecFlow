@@ -20,8 +20,8 @@ namespace specFlowSeleniumGamersPlaza.Pages
 
         public static CategoryPage AddProductToCart()
         { 
-            wait.Until(ElementToBeClickable(correctOrderButton));
-            correctOrderButton.Click();
+            wait.Until(ElementToBeClickable(CorrectOrderButton));
+            CorrectOrderButton.Click();
             return new CategoryPage(driver);
         }
 
